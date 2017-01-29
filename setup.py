@@ -1,5 +1,5 @@
 from setuptools import setup
-from setuptools.command.install import install
+from setuptools.command.build_py import build_py
 import os
 import shlex
 import site
@@ -16,26 +16,27 @@ def lib_suffix():
         return 'dll'
 
 
-class Install(install):
+class Build(build_py):
 
     def run(self):
+        # compile matlib
         path = os.path.dirname(os.path.abspath(__file__))
         prefix = os.path.join(path, 'build')
         cmd = shlex.split(
             './waf configure --prefix={prefix} build install'.format(prefix=prefix))
         sp.check_call(cmd, cwd=os.path.join(path, 'src/matlib'))
 
-        install.run(self)
+        build_py.run(self)
 
 
 setup(
     name='matlib',
-    version='0.1',
+    version='0.1.2',
     packages=['matlib'],
     setup_requires=['cffi>=1.0.0'],
     cffi_modules=['build.py:ffi'],
     install_requires=['cffi>=1.0.0'],
-    cmdclass={'install': Install},
+    cmdclass={'build_py': Build},
     data_files=[
         (site.getsitepackages()[0], ['build/lib/libmat.{suffix}'.format(suffix=lib_suffix())])
     ],
