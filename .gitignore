@@ -1,0 +1,9 @@
+.eggs/
+bin/
+build/
+dist/
+lib/
+matlib.egg-info/
+matlib/__pycache__/
+pip-selfcheck.json
+pyvenv.cfg

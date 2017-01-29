@@ -1,0 +1,3 @@
+[submodule "src/matlib"]
+	path = src/matlib
+	url = git@github.com:RookieGameDevs/matlib.git
