@@ -30,7 +30,7 @@ class Install(install):
 
 setup(
     name='matlib',
-    version='0.1+d302b04',
+    version='0.1',
     packages=['matlib'],
     setup_requires=['cffi>=1.0.0'],
     cffi_modules=['build.py:ffi'],
