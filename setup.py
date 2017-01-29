@@ -2,8 +2,18 @@ from setuptools import setup
 from setuptools.command.install import install
 import os
 import shlex
+import site
 import subprocess as sp
 import sys
+
+
+def lib_suffix():
+    if sys.platform.startswith('linux'):
+        return 'so'
+    elif sys.platform.startswith('darwin'):
+        return 'dylib'
+    elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
+        return 'dll'
 
 
 class Install(install):
@@ -26,6 +36,9 @@ setup(
     cffi_modules=['build.py:ffi'],
     install_requires=['cffi>=1.0.0'],
     cmdclass={'install': Install},
+    data_files=[
+        (site.getsitepackages()[0], ['build/lib/libmat.{suffix}'.format(suffix=lib_suffix())])
+    ],
 
     # metadata for PyPI
     author='Ivan Nikolaev',

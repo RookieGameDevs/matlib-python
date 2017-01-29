@@ -10,6 +10,7 @@ ffi.set_source(
     """,
     include_dirs=['build/include'],
     library_dirs=['build/lib'],
+    runtime_library_dirs=['matlib'],
     libraries=['mat'])
 
 # matlib package
