@@ -8,9 +8,10 @@ ffi.set_source(
     """
     #include "matlib.h"
     """,
-    include_dirs=['build/include'],
-    library_dirs=['build/lib'],
+    include_dirs=['matlib/include'],
+    library_dirs=['matlib/lib'],
     runtime_library_dirs=['matlib'],
+    extra_link_args=['-Wl,-rpath=$ORIGIN/matlib/lib'],
     libraries=['mat'])
 
 # matlib package
