@@ -1,2 +1,3 @@
 include build.py
+recursive-exclude matlib/lib *
 recursive-include src waf wscript *.h *.c
