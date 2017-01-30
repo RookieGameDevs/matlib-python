@@ -20,7 +20,7 @@ class Build(build_py):
 
 setup(
     name='matlib',
-    version='0.1.2',
+    version='0.1.3',
     packages=['matlib'],
     setup_requires=['cffi>=1.0.0'],
     cffi_modules=['build.py:ffi'],
