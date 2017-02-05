@@ -2,3 +2,26 @@ matlib-python
 =============
 
 Python wrappers for `matlib` C library.
+
+
+# Installation
+
+The package requires that a `matlib` library and header files are installed
+somewhere in the system so that during installation it could compile and link
+against it.
+
+If `matlib` is installed in a standard path which is looked up by C compiler
+(`/usr/include` and `/user/lib` respectively on UNIX systems, for example), it
+should suffice to do:
+
+    pip install matlib
+
+Otherwise, compiler options must be passed as environment variables so that the
+wrapper builds and links properly, GCC/CLang example:
+
+    # Fish
+    env CFLAGS=-I/opt/matlib/include LDFLAGS=-L/opt/matlib/lib pip install matlib
+
+    # Bash
+    CFLAGS=-I/opt/matlib/include LDFLAGS=-L/opt/matlib/lib pip install matlib
+
