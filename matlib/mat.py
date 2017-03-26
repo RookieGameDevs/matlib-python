@@ -56,7 +56,7 @@ class Mat:
             float(up_z))
 
     def lookatv(self, eye, center, up=None):
-        up = up or Vec(1, 0, 0)
+        up = up or Vec(0, 1, 0)
         lib.mat_lookatv(self._ptr, eye._ptr, center._ptr, up._ptr)
 
     def ortho(self, left, right, top, bottom, near, far):

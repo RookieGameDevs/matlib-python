@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='matlib',
-    version='0.1.5',
+    version='0.1.6',
     packages=['matlib'],
     setup_requires=['cffi>=1.0.0'],
     cffi_modules=['build.py:ffi'],
